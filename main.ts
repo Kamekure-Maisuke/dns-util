@@ -62,6 +62,12 @@ async function main() {
 
   // ドメインおよびレコードタイプ取得
   const domain = String(args._[0]);
+
+  if (domain === "undefined") {
+    console.error("ドメインは必須です。");
+    Deno.exit(1);
+  }
+
   const type = (args.type || "A") as RecordType;
 
   // DNS情報取得
